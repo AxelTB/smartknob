@@ -57,6 +57,7 @@ void MotorTask::run() {
     #if SENSOR_MT6701
     encoder.init();
     #endif
+    encoder.init();
 
     motor.linkDriver(&driver);
 
