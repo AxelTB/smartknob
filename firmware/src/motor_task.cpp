@@ -13,7 +13,7 @@
 // #### 
 // Hardware-specific motor calibration constants.
 // Run calibration once at startup, then update these constants with the calibration results.
-static const float ZERO_ELECTRICAL_OFFSET = 7.61;
+static const float ZERO_ELECTRICAL_OFFSET = 1.81;
 static const Direction FOC_DIRECTION = Direction::CW;
 static const int MOTOR_POLE_PAIRS = 7;
 // ####
@@ -43,9 +43,11 @@ MotorTask::~MotorTask() {}
     MT6701Sensor encoder = MT6701Sensor();
 #endif
 
+MagneticSensorI2C encoder = MagneticSensorI2C(AS5600_I2C);
+
 void MotorTask::run() {
 
-    driver.voltage_power_supply = 5;
+    driver.voltage_power_supply = 12;
     driver.init();
 
     #if SENSOR_TLV

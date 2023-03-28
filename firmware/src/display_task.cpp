@@ -25,9 +25,9 @@ void DisplayTask::run() {
     tft_.setRotation(SK_DISPLAY_ROTATION);
     tft_.fillScreen(TFT_DARKGREEN);
 
-    ledcSetup(LEDC_CHANNEL_LCD_BACKLIGHT, 5000, 16);
-    ledcAttachPin(PIN_LCD_BACKLIGHT, LEDC_CHANNEL_LCD_BACKLIGHT);
-    ledcWrite(LEDC_CHANNEL_LCD_BACKLIGHT, UINT16_MAX);
+    //ledcSetup(LEDC_CHANNEL_LCD_BACKLIGHT, 5000, 16);
+    //ledcAttachPin(PIN_LCD_BACKLIGHT, LEDC_CHANNEL_LCD_BACKLIGHT);
+    //ledcWrite(LEDC_CHANNEL_LCD_BACKLIGHT, UINT16_MAX);
 
     spr_.setColorDepth(8);
 
@@ -127,7 +127,7 @@ void DisplayTask::run() {
 
         {
           SemaphoreGuard lock(mutex_);
-          ledcWrite(LEDC_CHANNEL_LCD_BACKLIGHT, brightness_);
+          //ledcWrite(LEDC_CHANNEL_LCD_BACKLIGHT, brightness_);
         }
         delay(2);
     }
